@@ -49,10 +49,10 @@ CORS_ORIGIN=https://your-frontend-url.vercel.app
 3. Import your GitHub repository
 4. Configure:
    - **Framework Preset**: Vite
-   - **Root Directory**: `./` (leave empty for root)
-   - **Build Command**: `cd frontend && npm ci && npm run build`
-   - **Output Directory**: `frontend/dist`
-   - **Install Command**: `npm ci && cd frontend && npm ci`
+   - **Root Directory**: `frontend` (IMPORTANT: Set this to frontend)
+   - **Build Command**: `npm run build` (or leave default)
+   - **Output Directory**: `dist` (or leave default)
+   - **Install Command**: `npm install` (or leave default)
 
 ### 2.2 Set Environment Variables in Vercel
 ```
