@@ -87,6 +87,20 @@ app.use(compression());
 if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 
 app.get('/health', (req, res) => res.json({ success: true, timestamp: new Date().toISOString() }));
+app.get('/', (req, res) => res.json({ 
+  success: true, 
+  message: 'SmartHire API is running', 
+  version: '1.0.0',
+  endpoints: {
+    health: '/health',
+    auth: '/api/auth/*',
+    drives: '/api/drives/*',
+    candidates: '/api/candidates/*',
+    admin: '/api/admin/*',
+    ats: '/api/ats/*',
+    offers: '/api/offers/*'
+  }
+}));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/drives', driveRoutes);
