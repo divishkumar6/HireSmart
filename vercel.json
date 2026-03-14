@@ -1,9 +1,19 @@
 {
-  "buildCommand": "cd frontend && npm install && npm run build",
+  "name": "smarthire-frontend",
+  "version": 2,
+  "buildCommand": "cd frontend && npm ci && npm run build",
   "outputDirectory": "frontend/dist",
-  "installCommand": "cd frontend && npm install",
+  "installCommand": "npm ci && cd frontend && npm ci",
   "framework": "vite",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  ],
+  "env": {
+    "VITE_API_URL": "@vite_api_url"
+  },
+  "build": {
+    "env": {
+      "VITE_API_URL": "@vite_api_url"
+    }
+  }
 }

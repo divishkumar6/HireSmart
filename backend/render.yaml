@@ -2,8 +2,11 @@ services:
   - type: web
     name: smarthire-api
     env: node
-    buildCommand: npm install
+    region: oregon
+    plan: free
+    buildCommand: npm ci
     startCommand: npm start
+    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
@@ -15,3 +18,5 @@ services:
         value: 7d
       - key: CORS_ORIGIN
         sync: false
+      - key: PORT
+        value: 10000

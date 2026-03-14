@@ -6,7 +6,11 @@
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
     "start": "cd backend && npm start",
-    "build": "cd frontend && npm run build"
+    "build": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm ci",
+    "build:frontend": "cd frontend && npm ci && npm run build",
+    "deploy:vercel": "cd frontend && npm run build && vercel --prod",
+    "test:health": "curl -f http://localhost:5001/health || exit 1"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
